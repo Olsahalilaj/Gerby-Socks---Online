@@ -310,6 +310,57 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-
   }
   
+  #slider-container {
+    overflow: hidden;
+    width: 500px; /* Madhësia e prindit (slider) */
+    margin: 0 auto; /* Që të qendrojë në mes të faqes */
+}
+
+#slider {
+  overflow: hidden;
+}
+
+#slider figure {
+  position: relative;
+  width: 500%; /* Kujdes: mund të ketë ndikim në performancë, por po përdorni këtë vlerë për animacion. */
+  margin: 0;
+  left: 0;
+  animation: 20s slider infinite;
+}
+
+#slider figure img {
+  float: left;
+  width: 500px; /* Cakto width fikse */
+  height: 300px; /* Cakto height fikse */
+}
+@keyframes slider {
+  0% {
+      left: 0;
+  }
+  20% {
+      left: 0;
+  }
+  25% {
+      left: -100%;
+  }
+  45% {
+      left: -100%;
+  }
+  50% {
+      left: -200%;
+  }
+  70% {
+      left: -200%;
+  }
+  75% {
+      left: -300%;
+  }
+  95% {
+      left: -300%;
+  }
+  100% {
+      left: 0;
+  }
+}
