@@ -217,6 +217,7 @@
   
   .products-col p {
     padding: 0;
+
   }
   
   .products-col h3 {
@@ -314,9 +315,9 @@
   
   #slider-container {
     overflow: hidden;
-    width: 500px; /* Madhësia e prindit (slider) */
-    margin: 0 auto; /* Që të qendrojë në mes të faqes */
-}
+    width: 500px; 
+    margin: 0 auto; 
+  }
 
 #slider {
   overflow: hidden;
@@ -324,7 +325,7 @@
 
 #slider figure {
   position: relative;
-  width: 500%; /* Kujdes: mund të ketë ndikim në performancë, por po përdorni këtë vlerë për animacion. */
+  width: 500%; 
   margin: 0;
   left: 0;
   animation: 20s slider infinite;
@@ -332,8 +333,8 @@
 
 #slider figure img {
   float: left;
-  width: 500px; /* Cakto width fikse */
-  height: 300px; /* Cakto height fikse */
+  width: 500px;
+  height: 300px; 
 }
 @keyframes slider {
   0% {
