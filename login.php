@@ -1,3 +1,25 @@
+<?php
+session_start();
+$_SESSION;
+$errorMessage;
+include('includes/dbcon.php'); // Thirrja e databazes
+include('models/UserModel.php'); // Thirrja e user modelit
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $enteredUsername = $_POST['email']; 
+    $enteredPassword = $_POST['password'];
+
+    $userModel = new UserModel($pdo);
+    $user = $userModel->getUserByEmail($enteredUsername);
+
+    if ($user && $enteredPassword == $user['password']) {
+        $_SESSION['user'] = $user;
+        // qetu pe vendosum ne session userin qe pe perodrim nkrejt webin ka me u perdor
+        header('Location: index.php');    
+    } else {
+        $errorMessage = 'Invalid data';
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,32 +91,34 @@
 
 <body>
 
-    <form action="" class="form" onsubmit="return validateForm()">
-        <p>Name: <input type="text" id="name"></p>
-        <p>Lastname: <input type="text" id="lastname"></p>
-        <p>Email: <input type="email" id="email"></p>
-        <p>Password: <input type="password" id="password"></p>
+    <form action="" class="form" onsubmit="return validateForm()" method="POST">
+        <?php
+        if (!empty($errorMessage)) {
+            echo '<p class="error-message">' . $errorMessage . '</p>';
+        }?>
+        <p>Email: <input type="email" name="email" id="email"></p>
+        <p>Password: <input type="password" name="password" id="password"></p>
         <input type="submit">
     </form>
 
     <script>
         function validateForm() {
-            let name = document.getElementById('name').value;
-            let lastname = document.getElementById('lastname').value;
+            // let name = document.getElementById('name').value;
+            // let lastname = document.getElementById('lastname').value;
             let email = document.getElementById('email').value;
             let password = document.getElementById('password').value;
 
-            let nameRegex = /^[a-zA-Z\s]+$/;
-            if (!nameRegex.test(name)) {
-                alert('Please enter a valid name.');
-                return false;
-            }
+            // let nameRegex = /^[a-zA-Z\s]+$/;
+            // if (!nameRegex.test(name)) {
+            //     alert('Please enter a valid name.');
+            //     return false;
+            // }
 
-            let lastnameRegex = /^[a-zA-Z\s]+$/;
-            if (!lastnameRegex.test(lastname)) {
-                alert('Please enter a valid lastname.');
-                return false;
-            }
+            // let lastnameRegex = /^[a-zA-Z\s]+$/;
+            // if (!lastnameRegex.test(lastname)) {
+            //     alert('Please enter a valid lastname.');
+            //     return false;
+            // }
 
             let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
@@ -108,10 +132,10 @@
             }
 
             
-            displaySuccessMessage();
+            // displaySuccessMessage();
 
             
-            return false;
+            return true;
         }
 
         function displaySuccessMessage() {
