@@ -2,8 +2,8 @@
 session_start();
 $_SESSION;
 $errorMessage;
-include('includes/dbcon.php'); // Thirrja e databazes
-include('models/UserModel.php'); // Thirrja e user modelit
+include('dbcon.php'); // Thirrja e databazes
+include('UserModel.php'); // Thirrja e user modelit
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $enteredUsername = $_POST['email']; 
     $enteredPassword = $_POST['password'];
