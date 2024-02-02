@@ -13,8 +13,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($user && $enteredPassword == $user['password']) {
         $_SESSION['user'] = $user;
+        if($user['role'] == 1) 
+            $_SESSION['role'] = 'admin';
+        // pe ndryshojme tabelen e users per me shtu edhe rol per admin.okejj
+        // role 1 pe lajna per admin / 0 per usera 
         // qetu pe vendosum ne session userin qe pe perodrim nkrejt webin ka me u perdor
-        header('Location: index.php');    
+        // header('Location: index.php');    
     } else {
         $errorMessage = 'Invalid data';
     }
@@ -152,3 +156,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 </body>
 </html>
+
+
