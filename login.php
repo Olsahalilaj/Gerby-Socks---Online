@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['user'] = $user;
         if($user['role'] == 1) 
             $_SESSION['role'] = 'admin';
-        // pe ndryshojme tabelen e users per me shtu edhe rol per admin.okejj
+        // pe ndryshojme tabelen e users per me shtu edhe rol per admin
         // role 1 pe lajna per admin / 0 per usera 
         // qetu pe vendosum ne session userin qe pe perodrim nkrejt webin ka me u perdor
         // header('Location: index.php');    
