@@ -1,6 +1,6 @@
 <?php
-include('includes/dbcon.php');
-include('models/UserModel.php');
+include('dbcon.php');
+include('UserModel.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $formMessage ;
