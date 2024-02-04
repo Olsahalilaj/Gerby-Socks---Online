@@ -26,7 +26,7 @@
 </head>
 <body>
 <?php
-        include "includes/partials/header.php";
+        include "header.php";
     ?>
 
     <div>
