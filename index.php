@@ -84,23 +84,29 @@
        
         <div class="row">
           <div class="place-col">
+            <a href="https://www.google.com/maps/place/Albi+Mall/@42.6329186,21.1519423,15z/data=!4m6!3m5!1s0x13549ffe637b0dd7:0x4594c50f0099efc5!8m2!3d42.6329186!4d21.1519423!16s%2Fg%2F11hy82f2qw?entry=ttu">
             <img src="albimall.jpg" />
             <div class="layer">
               <h3>Albi Mall </br>3rd Floor</h3>
             </div>
           </div>
+          </a>
           <div class="place-col">
-            <img src="royali.jpg" />
+            <a href="https://www.google.com/maps/place/Royal+Mall/@42.6538179,21.1773421,15z/data=!4m6!3m5!1s0x13549edaa73c5815:0x8ce096f362fa06bb!8m2!3d42.6538179!4d21.1773421!16s%2Fg%2F11g9g_n6b1?entry=ttu">
+          <img src="royali.jpg" />
             <div class="layer">
               <h3>Royal Mall </br> 1st Floor</h3>
             </div>
           </div>
+          </a>
           <div class="place-col">
-            <img src="prmall.jpg" />
+          <a href="https://www.google.com/maps/place/Prishtina+Mall/@42.5644737,21.1332794,15z/data=!4m2!3m1!1s0x0:0xdf6994a48e64c161?sa=X&ved=2ahUKEwjW45Dwlo-EAxXlHxAIHXcBD8IQ_BJ6BAgOEAA"> 
+          <img src="prmall.jpg" />
             <div class="layer"> 
               <h3>Prishtina Mall </br>2nd Floor</h3>
             </div>
           </div>
+          </a> 
         </div>
       </section>
       

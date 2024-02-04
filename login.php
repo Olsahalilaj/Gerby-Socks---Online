@@ -2,8 +2,8 @@
 session_start();
 $_SESSION;
 $errorMessage;
-include('dbcon.php'); // Thirrja e databazes
-include('UserModel.php'); // Thirrja e user modelit
+include('includes/dbcon.php'); // Thirrja e databazes
+include('models/UserModel.php'); // Thirrja e user modelit
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $enteredUsername = $_POST['email']; 
     $enteredPassword = $_POST['password'];
@@ -18,7 +18,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // pe ndryshojme tabelen e users per me shtu edhe rol per admin
         // role 1 pe lajna per admin / 0 per usera 
         // qetu pe vendosum ne session userin qe pe perodrim nkrejt webin ka me u perdor
-        // header('Location: index.php');    
+         header('Location: dashboard.php');   
+         if($user['role']== 0){
+            $_SESSION['role'] = 'user';
+            header('Location: products.php');
+         } 
     } else {
         $errorMessage = 'Invalid data';
     }
@@ -156,5 +160,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 </body>
 </html>
-
-
