@@ -1,3 +1,29 @@
+<?php
+include('includes/dbcon.php');
+include('models/UserModel.php');
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $formMessage ;
+    $name = $_POST['name'];
+    $surname = $_POST['lastname'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $userModel = new UserModel($pdo);
+    $existingUser = $userModel->getUserByEmail($email);
+    
+    if ($existingUser) {
+        $formMessage = "Email is already registered. Please choose another email.";
+    } else {
+        $userModel->createUser($name, $surname, $email, $password);
+        // $_SESSION['user'] = $userModel;
+        // header('Location: index.php');    
+        var_dump($userModel);
+
+    }
+}
+?>
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,26 +83,28 @@
 </head>
 <body>
     
-<form id="signup">
+<form id="signup" action="" method="POST">
+    <?php 
+    if (!empty($errorMessage)) {
+        echo '<p class="error-message">' . $errorMessage . '</p>';
+    }?>
     <label>Name:</label>
-    <input type="text" id="name">
+    <input type="text" id="name" name="name">
     <div class="error-message" id="nameError"></div>
 
+    <label>Surname:</label>
+    <input type="text" id="surname" name="lastname">
+    <div class="error-message" id="surnameError" ></div>
+
     <label>Email:</label>
-    <input type="text" id="email">
+    <input type="text" id="email" name="email">
     <div class="error-message" id="emailError"></div>
 
-   
-    <label>Surname:</label>
-    <input type="text" id="surname">
-    <div class="error-message" id="surnameError"></div>
-
     <label>Password:</label>
-    <input type="password" id="password">
+    <input type="password" id="password" name="password">
     <div class="error-message" id="passwordError"></div>
 
-    
-    <button type="button" onclick="validateForm()">Submit</button>
+    <button type="submit" onclick="validateForm()">Submit</button>
 </form>
 
 <script>
@@ -100,24 +128,25 @@
         emailError.innerText = '';
         passwordError.innerText = '';
 
-        if(!nameRegex.test(nameInput.value)){
-            nameError.innerText = 'Invalid name';
-            return;
-        }
-        if(!surnameRegex.test(surnameInput.value)){
-            surnameError.innerText = 'Invalid surname';
-            return;
-        }
-        if(!emailRegex.test(emailInput.value)){
-            emailError.innerText = 'Invalid email';
-            return;
-        }
-        if(!passwordRegex.test(passwordInput.value)){
-            passwordError.innerText = 'Invalid password';
-            return;
-        }
+        // if(!nameRegex.test(nameInput.value)){
+        //     nameError.innerText = 'Invalid name';
+        //     return;
+        // }
+        // if(!surnameRegex.test(surnameInput.value)){
+        //     surnameError.innerText = 'Invalid surname';
+        //     return;
+        // }
+        // if(!emailRegex.test(emailInput.value)){
+        //     emailError.innerText = 'Invalid email';
+        //     return;
+        // }
+        // if(!passwordRegex.test(passwordInput.value)){
+        //     passwordError.innerText = 'Invalid password';
+        //     return;
+        // }
 
-        alert('Form submitted successfully!');
+        // alert('Form submitted successfully!');
+        return true;
     }
 </script>
 </body>
