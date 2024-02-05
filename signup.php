@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -113,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     let emailRegex = /[a-zA-Z.-_]+@[a-z]+\.[a-z]{2,3}$/;
     let passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/; 
 
-    function validateForm(){
+    function validateForm(event) {
         let nameInput = document.getElementById('name');
         let nameError = document.getElementById('nameError');
         let surnameInput = document.getElementById('surname');
@@ -128,26 +128,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         emailError.innerText = '';
         passwordError.innerText = '';
 
-        // if(!nameRegex.test(nameInput.value)){
-        //     nameError.innerText = 'Invalid name';
-        //     return;
-        // }
-        // if(!surnameRegex.test(surnameInput.value)){
-        //     surnameError.innerText = 'Invalid surname';
-        //     return;
-        // }
-        // if(!emailRegex.test(emailInput.value)){
-        //     emailError.innerText = 'Invalid email';
-        //     return;
-        // }
-        // if(!passwordRegex.test(passwordInput.value)){
-        //     passwordError.innerText = 'Invalid password';
-        //     return;
-        // }
+        if (!nameRegex.test(nameInput.value)) {
+            nameError.innerText = 'Invalid name';
+            event.preventDefault();
+            return false;
+        }
 
-        // alert('Form submitted successfully!');
+        if (!surnameRegex.test(surnameInput.value)) {
+            surnameError.innerText = 'Invalid surname';
+            event.preventDefault();
+            return false;
+        }
+
+        if (!emailRegex.test(emailInput.value)) {
+            emailError.innerText = 'Invalid email';
+            event.preventDefault();
+            return false;
+        }
+
+        if (!passwordRegex.test(passwordInput.value)) {
+            passwordError.innerText = 'Invalid password';
+            event.preventDefault();
+            return false;
+        }
+
+        alert('Form submitted successfully!');
         return true;
     }
 </script>
+
 </body>
 </html>
