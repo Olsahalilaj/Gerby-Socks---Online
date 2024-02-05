@@ -1,4 +1,3 @@
-
 <?php
 @include 'config.php';
 
@@ -25,6 +24,7 @@ if(isset($_POST['add_product'])){
 ?>
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +47,7 @@ if(isset($message)){
 
    <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
       <h3>Shto nje produkt te ri</h3>
-      <input type="text" placeholder="enter product name" name="product_name" class="box">
+      <input type="text" placeholder="enter your name" name="product_name" class="box">
       <input type="number" placeholder="enter product price" name="product_price" class="box">
       <input type="file" accept="image/png, image/jpeg, image/jpg" name="product_image" class="box">
       <input type="submit" class="btn" name="add_product" value="add product">
