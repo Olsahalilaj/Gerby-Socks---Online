@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $userModel->createUser($name, $surname, $email, $password);
         // $_SESSION['user'] = $userModel;
         // header('Location: index.php');    
-        var_dump($userModel);
+       //var_dump($userModel);
 
     }
 }

@@ -8,9 +8,6 @@
 </head>
 <body>
 
-    
-<a href="logout.php" style="color:black; text-decoration: underline; padding-left:10px;">Logout</a>
-   
 
 </body>
 
@@ -55,10 +52,7 @@
                   <p>Price:8.99$ </p>
           </div>
         </div>
-        <section class = "added">
-         <a href="newproducts.php">Shto Produktet </a>
-        </section>
-      </section>
+        <
       
 </body>
 </html>

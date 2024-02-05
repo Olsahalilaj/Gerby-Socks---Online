@@ -44,7 +44,7 @@
             Warm socks and good company -<br />
             What more do you need?
           </p>
-          <a href="products.html" class="hero-btn red">Tap To See Our Products</a>
+          <a href="p.php" class="hero-btn red">Tap To See Our Products</a>
         </div>
       </section>
   
