@@ -32,8 +32,8 @@
     <div>
         <h1>Dashboard</h1>
     <hr>
-        <a href="logout.php" style="color:black; text-decoration: underline; padding-left:10px;">Logout</a>
-        <a href="shtiProdukt.php" style="color:black; text-decoration: underline; padding-left:10px;">Shto Produkt</a>
+        
+        
     </div>
    
 
