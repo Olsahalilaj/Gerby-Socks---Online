@@ -32,8 +32,8 @@
             <i class="fa fa-times"></i>
             <ul>
               <li><a href="">HOME</a></li>
-              <li><a href="aboutus.html">ABOUT US</a></li>
-              <li><a href="login.html">LOG IN</a></li>
+              <li><a href="aboutus.php">ABOUT US</a></li>
+              <li><a href="login.php">LOG IN</a></li>
             </ul>
           </div>
           <i class="fa fa-bars"></i>
@@ -177,7 +177,7 @@
         <h1>
             Don't Have An Account Already?<br >Sign Up To View More Products!
         </h1>
-        <a href="signup.html" class="hero-btn">Sign Up</a>
+        <a href="signup.php" class="hero-btn">Sign Up</a>
     </section>
       
     
